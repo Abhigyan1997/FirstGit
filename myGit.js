@@ -1,10 +1,14 @@
-//get element by class name
-var Items=document.getElementsByClassName('list-group-item');
-Items[5].style.fontWeight='bold';
-Items[5].style.backgroundColor='yellow';
+//QuerySelector
+var second=document.querySelector('.list-group-item:nth-child(2)');
+second.style.backgroundColor='green';
 
+var invisible=document.querySelector('.list-group-item:nth-child(3)');
+invisible.style.display='none';
 
-//get element by tag name
- var li=document.getElementsByTagName('li');
-li[5].style.fontWeight='bold';
-li[5].style.backgroundColor='yellow';
+//QuerySelectorAll
+var second=document.querySelectorAll('.list-group-item:nth-child(2)');
+second.style.backgroundColor='green';
+
+var odd=document.querySelectorAll('.list-group-item:nth-child(odd)');
+for(var i=0;i<odd.length;i++);
+odd[i].style.backgroundColor='green';
