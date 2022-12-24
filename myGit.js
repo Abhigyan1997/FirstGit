@@ -1,14 +1,39 @@
-//QuerySelector
-var second=document.querySelector('.list-group-item:nth-child(2)');
-second.style.backgroundColor='green';
+//PARENT ELEMENT
+var items=document.querySelector('#items');
+console.log(items.parentElement);
+//LAST ELEMENTCHILD
+console.log(items.lastElementChild);
+//LAST CHILD
+console.log(items.lastChild);
+//FIRST ELEMENTCHILD
+console.log(items.firstElementChild);
+//FIRST CHILD
+console.log(items.firstChild);
+//NEXT SIBLING
+console.log(items.nextSibling);
+//NEXT ELEMENT SIBLING
+console.log(items.nextElementSibling);
+//PREVIOUS SIBLING
+console.log(items.previousSibling);
+//PREVIOUS ELEMENT SIBLING
+console.log(items.previousElementSibling);
 
-var invisible=document.querySelector('.list-group-item:nth-child(3)');
-invisible.style.display='none';
+//CREATE ELEMENT
+var newDiv=document.createElement('div');
+console.log(newDiv);
 
-//QuerySelectorAll
-var second=document.querySelectorAll('.list-group-item:nth-child(2)');
-second.style.backgroundColor='green';
+//SET ATTRIBUTE
+var newDiv=document.createElement('div');
+newDiv.setAttribute('title','Hello world');
+console.log(newDiv);
 
-var odd=document.querySelectorAll('.list-group-item:nth-child(odd)');
-for(var i=0;i<odd.length;i++);
-odd[i].style.backgroundColor='green';
+//CREATE TEXTNODE
+var divTextNode=document.createTextNode('Hello Javascript');
+//APPEND CHILD
+newDiv.appendChild(divTextNode);
+
+//Add HEllo word before Item Lister
+var container=document.querySelector('header.container');
+var h1=document.querySelector('header h1')
+console.log(newDiv);
+container.insertBefore(newDiv,h1);
