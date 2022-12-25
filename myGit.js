@@ -1,39 +1,38 @@
-//PARENT ELEMENT
-var items=document.querySelector('#items');
-console.log(items.parentElement);
-//LAST ELEMENTCHILD
-console.log(items.lastElementChild);
-//LAST CHILD
-console.log(items.lastChild);
-//FIRST ELEMENTCHILD
-console.log(items.firstElementChild);
-//FIRST CHILD
-console.log(items.firstChild);
-//NEXT SIBLING
-console.log(items.nextSibling);
-//NEXT ELEMENT SIBLING
-console.log(items.nextElementSibling);
-//PREVIOUS SIBLING
-console.log(items.previousSibling);
-//PREVIOUS ELEMENT SIBLING
-console.log(items.previousElementSibling);
 
-//CREATE ELEMENT
-var newDiv=document.createElement('div');
-console.log(newDiv);
+  // Create new li element
+  var li = document.createElement('li');
+  // Add class
+  li.className = 'list-group-item';
+  // Add text node with input value
+  li.appendChild(document.createTextNode(newItem));
+ 
+   // Create del button element
+   var deleteBtn = document.createElement('button');
+   // Add classes to del button
+   deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+   // Append text node
+   deleteBtn.appendChild(document.createTextNode('X'));
+   // Append button to li
+   li.appendChild(deleteBtn);
 
-//SET ATTRIBUTE
-var newDiv=document.createElement('div');
-newDiv.setAttribute('title','Hello world');
-console.log(newDiv);
+   //Remove item from new li
+   // Remove item
+function removeItem(e){
+    if(e.target.classList.contains('delete')){
+      if(confirm('Are You Sure?')){
+        var li = e.target.parentElement;
+        itemList.removeChild(li);
+      }
+    }
+  }
 
-//CREATE TEXTNODE
-var divTextNode=document.createTextNode('Hello Javascript');
-//APPEND CHILD
-newDiv.appendChild(divTextNode);
+   //Create edit button
+   var EditBtn = document.createElement('button');
+   // Add classes to Edit button
+   deleteBtn.className = 'btn btn-danger btn-sm float-right Edit';
+   // Append text node
+   EditBtn.appendChild(document.createTextNode('X'));
+   // Append button to li
+   li.appendChild(EditBtn);
 
-//Add HEllo word before Item Lister
-var container=document.querySelector('header.container');
-var h1=document.querySelector('header h1')
-console.log(newDiv);
-container.insertBefore(newDiv,h1);
+ 
