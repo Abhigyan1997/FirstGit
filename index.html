@@ -18,10 +18,6 @@
     <br>
     <input type="email" name="email"/>
      <br>
-    <label>Password</label>
-    <br>
-    <input type="password" name="password"/> 
-    <br>
     <label>Phone No</label>
     <br>
     <input type="phoneNo" name="phoneNo"/>
@@ -37,11 +33,7 @@
                 email:email,
                 phoneNo:phoneNo
               };
-              let myObj_serialized=JSON.stringify(obj);
-              console.log(myObj_serialized);
-              
-              let myObj_deserialized=JSON.parse(localStorage.getItem(myObj));
-              console.log(myObj_deserialized);
+              localStorage.setItem(email.obj, JSON.stringify(obj))
         }
         </script>
 
