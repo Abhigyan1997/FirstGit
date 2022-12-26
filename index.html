@@ -31,12 +31,17 @@
       <script>
         function SaveToLocalStorage(event){
             event.preventDeault();
-            const name=event.target.username.value;
-            const email=event.target.email.value;
-            const phoneNo=event.target.phoneNo.value;
-            localStorage.setItem('name','name')
-            localStorage.setItem('email','email')
-            localStorage.setItem('phoneNo','phoneNo')
+            
+              let obj={
+                name:name,
+                email:email,
+                phoneNo:phoneNo
+              };
+              let myObj_serialized=JSON.stringify(obj);
+              console.log(myObj_serialized);
+              
+              let myObj_deserialized=JSON.parse(localStorage.getItem(myObj));
+              console.log(myObj_deserialized);
         }
         </script>
 
