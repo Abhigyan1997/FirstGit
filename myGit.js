@@ -1,21 +1,21 @@
-// Filter Items
-function filterItems(e){
-    // convert text to lowercase
-    var text = e.target.value.toLowerCase();
-    // Get lis
-    var items = itemList.getElementsByTagName('li');
-    // Convert to an array
-    Array.from(items).forEach(function(item){
-      var itemName = item.firstChild.textContent;
-      if(itemName.toLowerCase().indexOf(text) != -1){
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  }
+//CURRYING USING BIND
 
-  //Create discription tag
-  var discription=document.getElementById('discription').value;
-  var discriptionNode=document.createTextNode('discription');
-  li.appendchild(discriptionNode)
+let multiply=function(x,y){
+  console.log(x*y);
+}
+let multiplybytwo=multiply.bind(this,2);
+multiplybytwo(6);
+
+let multiplybythree=multiply.bind(this,3);
+multiplybythree(6);
+
+//CURRYING USING CLOSURE
+let multiply2=function(x){
+  return function (y){
+  console.log(x*y);
+  }
+}
+multiplyByTwo=multiply(2);
+multiplyByTwo(3);
+multiplyByThree=multiply(3);
+multiplyByThree(10);
