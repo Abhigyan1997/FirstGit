@@ -1,21 +1,26 @@
-//CURRYING USING BIND
+class student{
 
-let multiply=function(x,y){
-  console.log(x*y);
-}
-let multiplybytwo=multiply.bind(this,2);
-multiplybytwo(6);
-
-let multiplybythree=multiply.bind(this,3);
-multiplybythree(6);
-
-//CURRYING USING CLOSURE
-let multiply2=function(x){
-  return function (y){
-  console.log(x*y);
+  constructor(name,age,Marks){
+ 
+   this.name=name;
+ 
+   this.age=age;
+ 
+   this.Marks=Marks
+ 
   }
-}
-multiplyByTwo=multiply(2);
-multiplyByTwo(3);
-multiplyByThree=multiply(3);
-multiplyByThree(10);
+  setPlacementAge(minPlacementAge){
+    return(minMarks)=>{
+      if(this.Marks>minMarks && this.age>minPlacementAge){
+        console.log(this.name + " is ready for placement");
+      }else{
+         console.log(this.name + " is not ready for placement")
+      }
+    }
+  }
+ 
+ }
+ 
+ student1=new student("Ram",22,78);
+ student1.setPlacementAge(11)(40);
+ 
