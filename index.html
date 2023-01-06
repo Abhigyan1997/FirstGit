@@ -1,85 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head >
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-   
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
 </head>
+
 <body>
-    <form onsubmit="SaveToLocalStorage(event)"  >
-    <label>Name</label>
-    <br>
-    <input type="text" name=""username/> 
-    <br>
-    <label>Email</label>
-    <br>
-    <input type="email" name="email"/>
-     <br>
-    <label>Phone No</label>
-    <br>
-    <input type="phoneNo" name="phoneNo"/>
-    <br>
-    <button> Get a Call </button>
-      </form>
+  <div class="container">
+    <h2 style="text-align:center;color: tomato;">Expense Tracker</h2>
 
-      <script>
-        function SaveToLocalStorage(event){
-            event.preventDeault();
-            
-              let obj={
-                name:name,
-                email:email,
-                phoneNo:phoneNo
-              };
-              localStorage.setItem(email.obj, JSON.stringify(obj))
-            }
-          }
+    <hr width="50" size="4px">
+    <form onsubmit="AddExpense(event)">
+      <label>ExpenseAmount</label>
+      <br>
+      <input id="amount" type="number" />
+      <br>
+      <label>ExpenseDiscription</label>
+      <br>
+      <input id="discription" type="text" name="Discription" />
+      <br>
+      <label>ExpenseCategory</label>
+      <br>
+      <select name="Category" id="category">
+        <option value="food">food</option>
+        <option value="rent">rent</option>
+        <option value="electricity">electricity</option>
+        <option value="fun">fun</option>
+      </select>
+      <br>
+      <button class="btn btn-1">Add Expense </button>
+    </form>
+    <ul id="userList">
 
-window.addEventListener('DOMContentLoaded', (event) => {
-    Object.keys(localStorage).forEach(key => {
-        const user = JSON.parse(localStorage.getItem(key))
-        showListofRegisteredUser(user)
-    })
-})
+    </ul>
+    <script>
+      function AddExpense(event) {
+        event.preventDefault();
+        const amount = event.target.amount.value;
+        const discription = event.target.discription.value;
+        const category = event.target.category.value;
+        const obj = {
+          amount, discription, category
+        }
+        console.log(obj);
+        const parentNode = document.getElementById("userList")
+        const childHtml = `<li>${obj.amount
+          }${obj.discription
+          } ${obj.category
+          } 
+    </li>`
+        parentNode.innerHTML = parentNode.innerHTML + childHtml
+      }
+      
+    </script>
+  </div>
 
-function showListofRegisteredUser(user){
-    const parentNode = document.getElementById('listOfitems');
-    const createNewUserHtml = `<li id='${user.email}'>${user.name} - ${user.email} - ${user.phonenumber}
-      <button onclick=deleteUser('${user.email}')>Delete</button>
-       </li>
-                                `
-    console.log(createNewUserHtml)
-    parentNode.innerHTML +=  createNewUserHtml;
-    console.log(parentNode.innerHTML)
-}
- //Edit User
+</body>
 
- function editUserDetails(emailId, name, phonenumber){
-
-document.getElementById('email').value = emailId;
-document.getElementById('username').value = name;
-document.getElementById('phonenumber').value =phonenumber;
-
-deleteUser(emailId)
-}
-
-//Delete user
-function deleteUser(email) {
-    localStorage.removeItem(email)
-    removeItemFromScreen(email)
-}
-
-function removeItemFromScreen(email){
-    const parentNode = document.getElementById('listOfitems');
-    const elem = document.getElementById(email)
-    parentNode.removeChild(elem);
-}
-              
-             
-        </script>
-
-</body> 
 </html>
