@@ -6,58 +6,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Async Await</title>
 
 </head>
 
 <body>
-  <div class="container">
-    <h2 style="text-align:center;color: tomato;">Expense Tracker</h2>
+    
+    <script src="async.js" </script>
+ 
 
-    <hr width="50" size="4px">
-    <form onsubmit="AddExpense(event)">
-      <label>ExpenseAmount</label>
-      <br>
-      <input id="amount" type="number" />
-      <br>
-      <label>ExpenseDiscription</label>
-      <br>
-      <input id="discription" type="text" name="Discription" />
-      <br>
-      <label>ExpenseCategory</label>
-      <br>
-      <select name="Category" id="category">
-        <option value="food">food</option>
-        <option value="rent">rent</option>
-        <option value="electricity">electricity</option>
-        <option value="fun">fun</option>
-      </select>
-      <br>
-      <button class="btn btn-1">Add Expense </button>
-    </form>
-    <ul id="userList">
-
-    </ul>
-    <script>
-      function AddExpense(event) {
-        event.preventDefault();
-        const amount = event.target.amount.value;
-        const discription = event.target.discription.value;
-        const category = event.target.category.value;
-        const obj = {
-          amount, discription, category
-        }
-        console.log(obj);
-        const parentNode = document.getElementById("userList")
-        const childHtml = `<li>${obj.amount
-          }${obj.discription
-          } ${obj.category
-          } 
-    </li>`
-        parentNode.innerHTML = parentNode.innerHTML + childHtml
-      }
-      
-    </script>
-  </div>
 </body>
+
 </html>
