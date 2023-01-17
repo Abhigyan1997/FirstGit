@@ -39,7 +39,7 @@
         const obj = {
           name, email, phone
         }
-        axios.post("https://crudcrud.com/api/015d427665e044d7ba57f38844f9ecdd/appointmentData", obj)
+        axios.post("https://crudcrud.com/api/3b58976cd6cc4c9a89f398de6bea064a/appointmentData", obj)
           .then((response) => {
             const parentNode = document.getElementById("userList")
             const data=response.data
@@ -49,7 +49,7 @@
           } ${data.phone
           } 
           <button onclick=deleteUser('${data._id}')>Delete</button>
-          <button onclick=editUser('${data.name}','${data._id}','${data.phone}')>Edit</button>
+          <button onclick=editUser('${data.name}','${data.email}','${data.phone}','${data._id}')>Edit</button>
     </li>`
 
         parentNode.innerHTML = parentNode.innerHTML + childHtml
@@ -62,7 +62,7 @@
         
       }
       window.addEventListener("DOMContentLoaded", () => {
-        axios.get("https://crudcrud.com/api/015d427665e044d7ba57f38844f9ecdd/appointmentData")
+        axios.get("https://crudcrud.com/api/3b58976cd6cc4c9a89f398de6bea064a/appointmentData")
           .then((response) => {
             console.log(response)
           })
@@ -70,16 +70,18 @@
             console.log(err)
           })
       })
-      function editUser(name, email, phone) {
-        document.getElementById('name').value = name;
-        document.getElementById('email').value = email;
-        document.getElementById('phone').value = phone;
-        deleteUser(objId)
-      }
+
+    function editUser(name,email,phone,dataId) {
+       document.getElementById("name").value=name;
+       document.getElementById("email").value=email;
+       document.getElementById("phone").value=phone;
+       deleteUser(dataId)
+   }
+      
       function deleteUser(dataId) {
         const element = document.getElementById(dataId);
               element.remove();
-        axios.delete(`https://crudcrud.com/api/015d427665e044d7ba57f38844f9ecdd/appointmentData/${dataId}`)
+        axios.delete(`https://crudcrud.com/api/3b58976cd6cc4c9a89f398de6bea064a/appointmentData/${dataId}`)
           .then((response) => {
             console.log(dataId)
           })
@@ -90,6 +92,6 @@
     </script>
   </div>
 
-</body>
+</body>   
 
 </html>
